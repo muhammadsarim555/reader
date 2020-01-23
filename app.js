@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const users = require("./api/routes/mobileApp/users");
 const addBooks = require("./api/routes/mobileApp/addBooks");
 
-mongoose.connect("url");
+mongoose.connect("mongodb://sarim:sarim123@ds113063.mlab.com:13063/mytodo");
 
 const app = express();
 
