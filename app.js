@@ -17,6 +17,9 @@ app.use("/uploads",express.static('uploads'))
 
 app.use("/users", users);
 app.use("/addBooks", addBooks);
+app.get("/", (req,res) => {
+    res.send("Hello world")
+});
 
 
 module.exports = app;
