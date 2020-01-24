@@ -3,10 +3,6 @@ const app = require("./app");
 
 const server = http.createServer(app);
 
-// server.listen(port, () => {
-//   console.log("Server connected to localhost!");
-// });
-
 const path = require("path");
 
 app.get("/", function(req, res) {
