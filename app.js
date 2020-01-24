@@ -17,7 +17,6 @@ app.use("/uploads",express.static('uploads'))
 
 app.use("/users", users);
 app.use("/addBooks", addBooks);
-// app.use("/addBooks", addBooks);
 
 
 module.exports = app;
