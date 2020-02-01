@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 
 const Books = require("../../models/addBooks");
+const checkAuth = require("../../middleware/check-auth");
 
 const storage = multer.diskStorage({
   destination: function(req, file, cb) {
@@ -22,6 +23,8 @@ const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 router.post(
   "/bookInfo",
+
+  checkAuth,
   upload.fields([
     { name: "bookFile", maxCount: 1 },
     { name: "bookImage", maxCount: 1 }
