@@ -1,15 +1,24 @@
-const http = require("http");
-const app = require("./app");
+var fcm = require("fcm-notification");
+var FCM = new fcm("./kolachimart-firebase.json");
+var token = "token here";
 
-const server = http.createServer(app);
+var message = {
+  data: {
+    //This is only optional, you can send any data
+    score: "850",
+    time: "2:45"
+  },
+  notification: {
+    title: "Title of notification",
+    body: "Body of notification"
+  },
+  token: token
+};
 
-const path = require("path");
-
-// 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "index.html"));
-});
-
-server.listen(process.env.PORT || 3000, function() {
-  console.log("Your node js server is running");
+FCM.send(message, function(err, response) {
+  if (err) {
+    console.log("error found", err);
+  } else {
+    console.log("response here", response);
+  }
 });
